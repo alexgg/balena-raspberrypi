@@ -11,8 +11,10 @@ on:
 
 jobs:
   release-on-tag:
-    uses: balena-os/github-workflows/.github/workflows/build_and_deploy.yml@v0.0.6
+    uses: balena-os/github-workflows/.github/workflows/build_and_deploy.yml@ad7f43b11ca39663d434e3c853c0fee305c9e71e
     with:
       deployTo: "production"
       final: "no"
-    secrets: inherit
+    secrets:
+      jenkins_user: ${{ secrets.JENKINS_USER }}
+      jenkins_token: ${{ secrets.JENKINS_TOKEN }}
